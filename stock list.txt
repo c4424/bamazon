@@ -1,0 +1,7 @@
+1,Bud Light,5.0,500
+2,Modelo, 6.50,500
+3,Heineken, 6.30,350
+4,Stella Artois,6.60,450
+5,Blue Moon,7.50,400
+6,Guinness,7.00,300
+7,Lagunitas,7.50,450
