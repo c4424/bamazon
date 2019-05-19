@@ -14,33 +14,33 @@ CREATE TABLE products (
 
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (120, "Bud Light", "NOT-SO alcoholic beverages", 5.0, 500);
+VALUES (12000, "Bud Light", "NOT-SO alcoholic beverages", 5.0, 500);
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (121, "Modelo", "NOT-SO alcoholic beverages", 6.50, 500); 
+VALUES (12100, "Modelo", "NOT-SO alcoholic beverages", 6.50, 500); 
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES(122, "Heineken", "alcoholic beverages", 6.30, 350); 
+VALUES (12200, "Heineken", "alcoholic beverages", 6.30, 350); 
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (123, "Stella Artois", "alcoholic beverages", 6.60, 450);
+VALUES (12300, "Stella Artois", "alcoholic beverages", 6.60, 450);
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES(124, "Blue Moon", "alcoholic beverages", 7.50, 400); 
+VALUES (12400, "Blue Moon", "alcoholic beverages", 7.50, 400); 
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (125, "Guinness", "alcoholic beverages", 7.00, 300)
+VALUES (12500, "Guinness", "alcoholic beverages", 7.00, 300)
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (126, "Lagunitas", "alcoholic beverages", 7.50, 450);
+VALUES (12600, "Lagunitas", "alcoholic beverages", 7.50, 450);
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES (127, "IceHouse", "NOT-SO alcoholic beverages", 5.30, 200);
+VALUES (12700, "IceHouse", "NOT-SO alcoholic beverages", 5.30, 200);
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES(128, "Lagunitas", "alcoholic beverages", 7.50, 450);
+VALUES(12800, "Lagunitas", "alcoholic beverages", 7.50, 450);
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES(129, "Miller", "NOT-SO alcoholic beverages", 4.50, 200);
+VALUES(12900, "Miller", "NOT-SO alcoholic beverages", 4.50, 200);
 
 SELECT*FROM products;

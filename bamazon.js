@@ -42,7 +42,7 @@ function productDetails() {
   .then(function (res){
     var items = res.product;
     var productQuantity = res.quantity;
-
+    // establishing connection with the products table
     connection.query("SELECT * FROM products WHERE ?", { item_id:items }, 
       function(err, res){
         if (err) throw err;
@@ -80,7 +80,7 @@ function productDetails() {
 function showProducts() {
   connection.query('SELECT * FROM products', function (error, res) {
     for (var i = 0; i < res.length; i++) {
-      console.log('\nItem ID ' + res[i].item_id + " | " + 'Beer brand: ' + res[i].product_name + " | " + 'Department: ' + res[i].department_name + " | " + 'Price (6-pack): ' + res[i].price.toString() + " | " + 'Stock: ' + res[i].stock_quantity.toString());
+      console.log('\n Item ID: ' + res[i].item_id + " | " + 'Beer brand: ' + res[i].product_name + " | " + 'Department: ' + res[i].department_name + " | " + 'Price (6-pack): ' + res[i].price.toString() + " | " + 'Stock: ' + res[i].stock_quantity.toString());
     }    
     console.log("----------------");
     productDetails();
@@ -108,11 +108,8 @@ function keepShopping(){
   })
 }
 
+// assignment added to portfolio as well
 
-// CHECK ON iceCreamCRUD from activity 09
-// CHECK ON greatBayBasic from activity 10
-// try to npm install cli-table
-//-----------------------------------------------------//
 
 
 
