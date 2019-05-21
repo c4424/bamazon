@@ -28,7 +28,6 @@ function productDetails() {
       type: "input",
       message: "I know it's been a long day, what would you like to drink?",
       name: "product",
-      filter: Number,
     },
     
     {
@@ -40,15 +39,16 @@ function productDetails() {
 ])
 
   .then(function (res){
+    console.log(typeof res);
     var items = res.product;
     var productQuantity = res.quantity;
     // establishing connection with the products table
-    connection.query("SELECT * FROM products WHERE ?", { item_id:items }, 
-      function(err, res){
+    connection.query(`SELECT * FROM products WHERE (?)`, {product_name:items}, 
+      function(err, response){
         if (err) throw err;
         // if they dont select a product, they will get this error message, after that the product list opens again.
         if (response.length === 0) {
-          console.log("Please select a product ID from the list");
+          console.log("Please select a product from the list");
           showProducts();
         } else {
         // this responds if the quantity selected is in stock
@@ -56,9 +56,9 @@ function productDetails() {
           if (productQuantity <= productStock.stock_quantity) {
             console.log("we still have this product on stock")
 
-            var updateInventory = 'UPDATE products SET stock_quantity= ' + (productStock.stock_quantity - productQuantity) + 'WHERE item_id= ' + items;
+            var updateInventory = 'UPDATE products SET stock_quantity = ' + (productStock.stock_quantity - productQuantity) + ' WHERE product_name = ' + items;
 
-            connection.query(updateInventory, function (err, data){
+            connection.query(`UPDATE products SET stock_quantity = ? WHERE product_name = ?`,[productStock.stock_quantity - productQuantity, items], function (err, data){
               if (err) throw err;
               console.log('Your order has been placed, your total is $' + productStock.price * productQuantity);
               console.log('Thanks for choosing our online bar. Cheers!');
@@ -80,7 +80,7 @@ function productDetails() {
 function showProducts() {
   connection.query('SELECT * FROM products', function (error, res) {
     for (var i = 0; i < res.length; i++) {
-      console.log('\n Item ID: ' + res[i].item_id + " | " + 'Beer brand: ' + res[i].product_name + " | " + 'Department: ' + res[i].department_name + " | " + 'Price (6-pack): ' + res[i].price.toString() + " | " + 'Stock: ' + res[i].stock_quantity.toString());
+      console.log('\n Beer brand: ' + res[i].product_name + " | " + 'Department: ' + res[i].department_name + " | " + 'Price (6-pack): ' + res[i].price.toString() + " | " + 'Stock: ' + res[i].stock_quantity.toString());
     }    
     console.log("----------------");
     productDetails();
